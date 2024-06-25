@@ -3,10 +3,10 @@ import './globals.css'
 import { Questrial } from 'next/font/google'
 import { APP_DESCRIPTION, APP_TITLE } from '@/core/lib/constants'
 
-import type { Metadata } from 'next'
-import Footer from '@/app/components/layout/Footer'
 import { ThemeProvider } from '@/core/components/theme-provider'
 import { Toaster } from '@/core/components/ui/sonner'
+
+import type { Metadata } from 'next'
 
 const questrial = Questrial({ subsets: ['latin'], weight: ['400'] })
 
@@ -22,17 +22,14 @@ export default function RootLayout ({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={questrial.className}>
+      <body style={questrial.style} className='flex flex-col min-h-dvh'>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col gap-10 min-h-dvh p-5">
-            {children}
-            <Footer />
-          </div>
+          {children}
         </ThemeProvider>
         <Toaster expand />
       </body>
