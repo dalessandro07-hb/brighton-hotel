@@ -16,7 +16,7 @@ export default async function ConfirmEmailPage () {
       </TypographyH1>
 
       <Button className='w-max' asChild variant="link">
-        <Link href="/perfil">Ir al perfil</Link>
+        <Link href="/dashboard">Ir al dashboard</Link>
       </Button>
     </MainPageContainer>
   ) : (

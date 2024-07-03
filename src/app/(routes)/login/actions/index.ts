@@ -29,21 +29,7 @@ export async function login (formData: FormData) {
   }
 
   revalidatePath('/', 'layout')
-  redirect('/perfil')
-}
-
-export async function signout () {
-  const supabase = await createClient()
-
-  const { error } = await supabase.auth.signOut()
-
-  if (error) {
-    const errMsg = `Error: ${error.message}.`
-    redirect(`/error?message=${errMsg}`)
-  }
-
-  revalidatePath('/', 'layout')
-  redirect('/')
+  redirect('/dashboard')
 }
 
 export async function signup (formData: FormData) {

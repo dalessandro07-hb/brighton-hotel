@@ -1,6 +1,6 @@
 import './globals.css'
 
-import { Questrial } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { APP_DESCRIPTION, APP_TITLE } from '@/core/lib/constants'
 
 import { ThemeProvider } from '@/core/components/theme-provider'
@@ -8,7 +8,7 @@ import { Toaster } from '@/core/components/ui/sonner'
 
 import type { Metadata } from 'next'
 
-const questrial = Questrial({ subsets: ['latin'], weight: ['400'] })
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: APP_TITLE,
@@ -22,7 +22,7 @@ export default function RootLayout ({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body style={questrial.style} className='flex flex-col min-h-dvh'>
+      <body style={inter.style} className='flex flex-col min-h-dvh'>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

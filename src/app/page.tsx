@@ -1,14 +1,14 @@
-import HeroSection from '@/app/components/hero/HeroSection'
-import MainPageContainer from '@/app/components/layout/MainPageContainer'
-import RoomContainer from '@/app/components/rooms/RoomContainer'
+import { getUser } from '@/app/actions/getUser'
+import { redirect } from 'next/navigation'
 
-export default function Home () {
-  return (
-    <MainPageContainer withoutHeader>
-      {/* Hero Section */}
-      <HeroSection />
-      {/* Habitaciones */}
-      <RoomContainer />
-    </MainPageContainer>
-  )
+export default async function Home () {
+  const { user, error } = await getUser()
+
+  if (!user || error) {
+    redirect('/login')
+  } else {
+    redirect('/dashboard')
+  }
+
+  return null
 }
