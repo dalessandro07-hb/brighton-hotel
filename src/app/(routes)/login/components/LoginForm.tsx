@@ -41,7 +41,9 @@ export default function LoginForm () {
             <Label htmlFor={field.name}>{field.label}:</Label>
 
             <div className='relative'>
-              <Input className='invalid:border-red-500 valid:border-green-500' placeholder={field.placeholder} id={field.name} name={field.name} type={field.type} required />
+              <Input className='invalid:border-red-500 valid:border-green-500' placeholder={field.placeholder} id={field.name} name={field.name} type={
+                field.name === 'password' ? (viewPassword ? 'text' : 'password') : field.type
+              } required />
 
               {field.name === 'password' && (
                 <Button onClick={handleViewPassword} type='button' className='absolute top-1/2 right-0 -translate-y-1/2' variant="outline" size="icon">
