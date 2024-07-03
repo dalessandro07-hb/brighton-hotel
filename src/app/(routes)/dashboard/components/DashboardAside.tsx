@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { BookmarkIcon, CircleDollarSignIcon, ClipboardCheckIcon, Edit2Icon, Home, SlackIcon, TagIcon } from 'lucide-react'
+import ThemeToggle from '@/core/components/theme-toggle'
 
 const links = [
   { href: '/', icon: Home, label: 'Dashboard' },
@@ -12,7 +13,7 @@ const links = [
 
 export default function DashboardAside () {
   return (
-    <aside className="fixed inset-y-0 left-0 z-10 hidden w-44 flex-col border-r bg-background sm:flex">
+    <aside className="fixed inset-y-0 left-0 z-10 hidden w-44 justify-between flex-col border-r bg-background sm:flex">
       <nav className="flex flex-col gap-10 p-5 w-full">
         <Link
           href="#"
@@ -40,6 +41,10 @@ export default function DashboardAside () {
           })}
         </div>
       </nav>
+
+      <div className="p-5">
+        <ThemeToggle />
+      </div>
     </aside>
   )
 }
